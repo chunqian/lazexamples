@@ -1,3 +1,3 @@
-[submodule "lazsrc"]
-  path = lazsrc
-  url = https://github.com/chunqian/lazsrc.git
+[submodule "lazsrc.git"]
+	path = lazsrc
+	url = https://github.com/chunqian/lazsrc.git
