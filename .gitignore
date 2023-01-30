@@ -1,0 +1,11 @@
+
+# folders
+**/units/
+**/lib/
+units/
+lib/
+
+# files
+.DS_Store
+hello
+!hello/

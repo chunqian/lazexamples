@@ -1,0 +1,67 @@
+#
+#   Makefile.fpc for LCL Hello Example for Free Pascal
+#
+
+[package]
+name=hello
+version=1.0
+
+[target]
+programs=hello
+dirs=
+
+[require]
+packages=
+
+[clean]
+files=$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*$(PPUEXT)) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*$(RSTEXT)) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*.lfm) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*.res) \
+      $(wildcard *$(OEXT)) $(wildcard *$(PPUEXT)) $(wildcard *$(RSTEXT))
+            
+[compiler]
+targetdir=.
+unittargetdir=./units/$(CPU_TARGET)-$(OS_TARGET)
+options=-MObjFPC -O1 -g $(DBG_OPTIONS)
+unitdir=../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET) \
+        ../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) \
+        ../lazsrc/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) \
+        ../lazsrc/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) \
+        ../lazsrc/packager/units/$(CPU_TARGET)-$(OS_TARGET) \
+        .
+
+[prerules]
+ifndef LCL_PLATFORM
+	ifeq ($(OS_TARGET),win32)
+		LCL_PLATFORM=win32
+	else
+		ifeq ($(OS_TARGET),win64)
+			LCL_PLATFORM=win32
+		else
+			ifeq ($(OS_TARGET),darwin)
+				LCL_PLATFORM=cocoa
+			else
+				LCL_PLATFORM=gtk2
+			endif
+		endif
+	endif
+endif
+export LCL_PLATFORM
+
+DBG_OPTIONS=
+ifeq ($(OS_TARGET),darwin)
+	DBG_OPTIONS=-gw
+endif
+
+[rules]
+.PHONY: cleartarget all
+
+cleartarget:
+	-$(DEL) $(COMPILER_TARGETDIR)/hello$(PPUEXT)
+
+all: cleartarget $(COMPILER_UNITTARGETDIR) hello$(PPUEXT)
+
+distclean: clean
+	${DELTREE} ./units/*
