@@ -14,7 +14,8 @@ dirs=
 packages=
 
 [clean]
-files=$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) \
+files= \
+	$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) \
 	$(wildcard $(COMPILER_UNITTARGETDIR)/*$(PPUEXT)) \
 	$(wildcard $(COMPILER_UNITTARGETDIR)/*$(RSTEXT)) \
 	$(wildcard $(COMPILER_UNITTARGETDIR)/*.lfm) \
@@ -25,7 +26,8 @@ files=$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) \
 targetdir=.
 unittargetdir=./units/$(CPU_TARGET)-$(OS_TARGET)
 options=-MObjFPC -O1 -g $(DBG_OPTIONS)
-unitdir=../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET) \
+unitdir= \
+	../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET) \
 	../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) \
 	../lazsrc/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) \
 	../lazsrc/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) \
