@@ -15,22 +15,22 @@ packages=
 
 [clean]
 files=$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) \
-      $(wildcard $(COMPILER_UNITTARGETDIR)/*$(PPUEXT)) \
-      $(wildcard $(COMPILER_UNITTARGETDIR)/*$(RSTEXT)) \
-      $(wildcard $(COMPILER_UNITTARGETDIR)/*.lfm) \
-      $(wildcard $(COMPILER_UNITTARGETDIR)/*.res) \
-      $(wildcard *$(OEXT)) $(wildcard *$(PPUEXT)) $(wildcard *$(RSTEXT))
+	$(wildcard $(COMPILER_UNITTARGETDIR)/*$(PPUEXT)) \
+	$(wildcard $(COMPILER_UNITTARGETDIR)/*$(RSTEXT)) \
+	$(wildcard $(COMPILER_UNITTARGETDIR)/*.lfm) \
+	$(wildcard $(COMPILER_UNITTARGETDIR)/*.res) \
+	$(wildcard *$(OEXT)) $(wildcard *$(PPUEXT)) $(wildcard *$(RSTEXT))
             
 [compiler]
 targetdir=.
 unittargetdir=./units/$(CPU_TARGET)-$(OS_TARGET)
 options=-MObjFPC -O1 -g $(DBG_OPTIONS)
 unitdir=../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET) \
-        ../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) \
-        ../lazsrc/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) \
-        ../lazsrc/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) \
-        ../lazsrc/packager/units/$(CPU_TARGET)-$(OS_TARGET) \
-        .
+	../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) \
+	../lazsrc/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) \
+	../lazsrc/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) \
+	../lazsrc/packager/units/$(CPU_TARGET)-$(OS_TARGET) \
+	.
 
 [prerules]
 ifndef LCL_PLATFORM
