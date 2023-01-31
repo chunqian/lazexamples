@@ -360,7 +360,7 @@ ifeq ($(FULL_TARGET),x86_64-darwin)
 override COMPILER_OPTIONS+=-MObjFPC -O1 -g $(DBG_OPTIONS)
 endif
 ifeq ($(FULL_TARGET),x86_64-darwin)
-override COMPILER_UNITDIR+=../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../lazsrc/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../lazsrc/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../lazsrc/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../lazsrc/packager/units/$(CPU_TARGET)-$(OS_TARGET) .
+override COMPILER_UNITDIR+=$(LAZARUSDIR)/lcl/units/$(CPU_TARGET)-$(OS_TARGET) $(LAZARUSDIR)/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) $(LAZARUSDIR)/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) $(LAZARUSDIR)/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) $(LAZARUSDIR)/packager/units/$(CPU_TARGET)-$(OS_TARGET) .
 endif
 ifeq ($(FULL_TARGET),x86_64-darwin)
 override COMPILER_TARGETDIR+=.
