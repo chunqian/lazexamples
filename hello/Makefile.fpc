@@ -25,7 +25,7 @@ files= \
 [compiler]
 targetdir=.
 unittargetdir=./units/$(CPU_TARGET)-$(OS_TARGET)
-options=-MObjFPC -O1 -g $(DBG_OPTIONS)
+options=-MObjFPC -Scghi -O1 -g -gl -l -vewnhibq $(DBG_OPTIONS)
 unitdir= \
 	$(LAZARUSDIR)/lcl/units/$(CPU_TARGET)-$(OS_TARGET) \
 	$(LAZARUSDIR)/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) \

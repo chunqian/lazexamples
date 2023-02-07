@@ -357,7 +357,7 @@ ifeq ($(FULL_TARGET),x86_64-darwin)
 override CLEAN_FILES+=$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) $(wildcard $(COMPILER_UNITTARGETDIR)/*$(PPUEXT)) $(wildcard $(COMPILER_UNITTARGETDIR)/*$(RSTEXT)) $(wildcard $(COMPILER_UNITTARGETDIR)/*.lfm) $(wildcard $(COMPILER_UNITTARGETDIR)/*.res) $(wildcard *$(OEXT)) $(wildcard *$(PPUEXT)) $(wildcard *$(RSTEXT))
 endif
 ifeq ($(FULL_TARGET),x86_64-darwin)
-override COMPILER_OPTIONS+=-MObjFPC -O1 -g $(DBG_OPTIONS)
+override COMPILER_OPTIONS+=-MObjFPC -Scghi -O1 -g -gl -l -vewnhibq $(DBG_OPTIONS)
 endif
 ifeq ($(FULL_TARGET),x86_64-darwin)
 override COMPILER_UNITDIR+=$(LAZARUSDIR)/lcl/units/$(CPU_TARGET)-$(OS_TARGET) $(LAZARUSDIR)/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) $(LAZARUSDIR)/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) $(LAZARUSDIR)/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) $(LAZARUSDIR)/packager/units/$(CPU_TARGET)-$(OS_TARGET) .

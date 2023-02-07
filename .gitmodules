@@ -1,0 +1,3 @@
+[submodule "brookfreepascal.git"]
+	path = brookfreepascal
+	url = git@github.com:chunqian/brookfreepascal.git
